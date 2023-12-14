@@ -1,0 +1,153 @@
+        ScopeTable# 1 created
+Cmd 1: I foo FUNCTION
+        Inserted  at position <5, 1> of ScopeTable# 1
+Cmd 2: I i VAR
+        Inserted  at position <1, 1> of ScopeTable# 1
+Cmd 3: L i
+found at position 1of ScopeTable# 1
+Cmd 4: L i
+found at position 1of ScopeTable# 1
+Cmd 6: L j
+         'j' Not found in any of the ScopeTables
+Cmd 7: I 23 NUMBER
+        Inserted  at position <5, 1> of ScopeTable# 1
+Cmd 8: P C
+        ScopeTable# 1
+        1 --> (i,VAR)
+        2
+        3
+        4
+        5 --> (foo,FUNCTION) --> (23,NUMBER)
+        6
+        7
+Cmd 9: D i
+        Deleted 'i' from position<1, 1> ScopeTable#1
+Cmd 10: D j
+        Not found in the current scopeTable# 1
+Cmd 11: P A
+        ScopeTable# 1
+        1
+        2
+        3
+        4
+        5 --> (foo,FUNCTION) --> (23,NUMBER)
+        6
+        7
+Cmd 12: S
+        ScopeTable# 1.1 created
+Cmd 13: I <= RELOP
+        Inserted  at position <7, 1> of ScopeTable# 1.1
+Cmd 14: I == RELOP
+        Inserted  at position <2, 1> of ScopeTable# 1.1
+Cmd 15: P A
+        ScopeTable# 1.1
+        1
+        2 --> (==,RELOP)
+        3
+        4
+        5
+        6
+        7 --> (<=,RELOP)
+        ScopeTable# 1
+        1
+        2
+        3
+        4
+        5 --> (foo,FUNCTION) --> (23,NUMBER)
+        6
+        7
+Cmd 16: I >= RELOP
+        Inserted  at position <4, 1> of ScopeTable# 1.1
+Cmd 17: P C
+        ScopeTable# 1.1
+        1
+        2 --> (==,RELOP)
+        3
+        4 --> (>=,RELOP)
+        5
+        6
+        7 --> (<=,RELOP)
+Cmd 18: I <= RELOP
+        <<=,RELOP> already exists in current ScopeTable# 1.1
+Cmd 19: I foo FUNCTION
+        Inserted  at position <5, 1> of ScopeTable# 1.1
+Cmd 20: D ==
+        Deleted '==' from position<2, 1> ScopeTable#1.1
+Cmd 21: D 23
+        Not found in the current scopeTable# 1.1
+Cmd 22: D P
+        Not found in the current scopeTable# 1.1
+Cmd 24: L 23
+found at position 2of ScopeTable# 1
+Cmd 25: S
+        ScopeTable# 1.1.1 created
+Cmd 26: I x VAR
+        Inserted  at position <2, 1> of ScopeTable# 1.1.1
+Cmd 27: I y VAR
+        Inserted  at position <3, 1> of ScopeTable# 1.1.1
+Cmd 28: P A
+        ScopeTable# 1.1.1
+        1
+        2 --> (x,VAR)
+        3 --> (y,VAR)
+        4
+        5
+        6
+        7
+        ScopeTable# 1.1
+        1
+        2
+        3
+        4 --> (>=,RELOP)
+        5 --> (foo,FUNCTION)
+        6
+        7 --> (<=,RELOP)
+        ScopeTable# 1
+        1
+        2
+        3
+        4
+        5 --> (foo,FUNCTION) --> (23,NUMBER)
+        6
+        7
+Cmd 29: L foo
+found at position 1of ScopeTable# 1.1
+Cmd 30: E
+        ScopeTable# 1.1.1 deleted
+Cmd 31: I num VAR
+        Inserted  at position <1, 1> of ScopeTable# 1.1
+Cmd 32: S
+        ScopeTable# 1.1.2 created
+Cmd 33: I true BOOL
+        Inserted  at position <7, 1> of ScopeTable# 1.1.2
+Cmd 34: I a P
+        Inserted  at position <7, 1> of ScopeTable# 1.1.2
+Cmd 36: E
+        ScopeTable# 1.1.2 deleted
+Cmd 37: E
+        ScopeTable# 1.1 deleted
+Cmd 38: E
+        ScopeTable# 1 cannot be deleted
+Cmd 39: S
+        ScopeTable# 1.2 created
+Cmd 40: P A
+        ScopeTable# 1.2
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        ScopeTable# 1
+        1
+        2
+        3
+        4
+        5 --> (foo,FUNCTION) --> (23,NUMBER)
+        6
+        7
+Cmd 41: P Z
+Cmd 42: Q
+        ScopeTable# 1.2 deleted
+        ScopeTable# 1 deleted
